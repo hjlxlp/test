@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <bean id="hello" class="com.hjl.test.HelloWord">
+        <property name="info" value="Happy New Year"/>
+    </bean>
+
+    <bean id="stuOne" class="com.hjl.test.StuOne">
+        <constructor-arg>
+            <value>火精灵</value>
+        </constructor-arg>
+        <constructor-arg>
+            <value>女</value>
+        </constructor-arg>
+        <constructor-arg>
+            <value>21</value>
+        </constructor-arg>
+    </bean>
+
+    <bean id="stuTwo" class="com.hjl.test.StuTwo">
+        <property name="name">
+            <value>火麒麟</value>
+        </property>
+        <property name="sex">
+            <value>男</value>
+        </property>
+        <property name="age">
+            <value>21</value>
+        </property>
+    </bean>
+
+    <bean id="school" class="com.hjl.test.School">
+        <!--List 注入例子 -->
+        <property name="listStu">
+            <list>
+                <ref bean="stuOne"/>
+                <bean class="com.hjl.test.StuTwo">
+                    <property name="age" value="21"/>
+                    <property name="name" value="list"/>
+                    <property name="sex" value="男"/>
+                </bean>
+                <value>随便加的</value>
+            </list>
+        </property>
+
+        <!--set 注入例子 -->
+        <property name="setStu">
+            <set>
+                <ref bean="stuTwo"/>
+                <bean class="com.hjl.test.StuOne">
+                    <constructor-arg value="set" index="0"></constructor-arg>
+                    <constructor-arg value="男" index="1"></constructor-arg>
+                    <constructor-arg value="21" index="2"></constructor-arg>
+                </bean>
+                <value>也是随便加的</value>
+            </set>
+        </property>
+
+        <!--map 注入例子 -->
+        <property name="mapStu">
+            <map>
+                <entry key="key1">
+                    <ref bean="stuOne"/>
+                </entry>
+                <entry key="key2">
+                    <bean class="com.hjl.test.StuTwo">
+                        <property name="age" value="21"/>
+                        <property name="name" value="list"/>
+                        <property name="sex" value="男"/>
+                    </bean>
+                </entry>
+                <entry key="key3">
+                    <value>还是随便加的</value>
+                </entry>
+            </map>
+        </property>
+
+    </bean>
+
+</beans>
