@@ -1,4 +1,4 @@
-package com.hjl.test;
+package com.hjl.spring;
 
 import org.springframework.beans.factory.BeanFactory;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
