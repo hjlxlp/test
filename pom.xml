@@ -22,11 +22,19 @@
 
     <!--jar版本号-->
     <spring.version>4.3.3.RELEASE</spring.version>
+    <junit.version>4.11</junit.version>
 
   </properties>
 
-
   <dependencies>
+
+    <!--Junit-->
+    <dependency>
+      <groupId>junit</groupId>
+      <artifactId>junit</artifactId>
+      <version>${junit.version}</version>
+      <scope>test</scope>
+    </dependency>
 
     <!-- spring依赖 9个 springframework-->
     <dependency>
@@ -82,17 +90,6 @@
       <artifactId>spring-test</artifactId>
       <version>${spring.version}</version>
     </dependency>
-
-
-
-
-
-
-
-
-
-
-
 
   </dependencies>
 

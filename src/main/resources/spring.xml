@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <!--无参-->
+    <bean id="one" class="com.hjl.bean.HelloImpl"/>
+
+    <!--有参-->
+    <bean id="two" class="com.hjl.bean.HelloImpl">
+        <constructor-arg index="0" value="hello 有参"/>
+    </bean>
+
+    <!--静态工厂-->
+    <bean id="three" class="com.hjl.bean.HelloFactory" factory-method="newInstance">
+        <constructor-arg index="0" value="hello 静态工厂"/>
+    </bean>
+
+    <!--实例工厂-->
+    <bean id="factory" class="com.hjl.bean.HelloFactoryTwo"/>
+    <bean id="four" class="com.hjl.bean.HelloFactory" factory-bean="factory" factory-method="newInstance">
+        <constructor-arg index="0" value="hello 实例工厂"/>
+    </bean>
+
+</beans>
