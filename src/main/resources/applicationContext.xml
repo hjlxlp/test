@@ -1,8 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
        xsi:schemaLocation="http://www.springframework.org/schema/beans
-       http://www.springframework.org/schema/beans/spring-beans.xsd">
+       http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/context
+        http://www.springframework.org/schema/context/spring-context.xsd">
+
+    <!--开启注解注入-->
+    <context:annotation-config/>
+    <context:component-scan base-package="com.hjl.spring"></context:component-scan>
 
     <bean id="hello" class="com.hjl.spring.HelloWord">
         <property name="info" value="Happy New Year"/>
@@ -31,6 +38,13 @@
             <value>21</value>
         </property>
     </bean>
+
+    <!--静态工厂-->
+    <bean id="stuThree" class="com.hjl.spring.StuFactory" factory-method="newInstance"/>
+
+    <!--实例工厂-->
+    <bean id="factory" class="com.hjl.spring.StuFactory"/>
+    <bean id="stuThree2" factory-bean="factory" factory-method="newInstanceTwo"></bean>
 
     <bean id="school" class="com.hjl.spring.School">
         <!--List 注入例子 -->

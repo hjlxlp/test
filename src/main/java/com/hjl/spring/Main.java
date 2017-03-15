@@ -20,6 +20,12 @@ public class Main {
         //stuOne 属性注入
         StuTwo stuTwo=(StuTwo)beanFactory.getBean("stuTwo");
         stuTwo.printInfo();
+        //静态工厂注入
+        StuThree stuThree=(StuThree)beanFactory.getBean("stuThree");
+        stuThree.printInfo();
+        //实例工厂注入
+        StuThree stuThree2=(StuThree)beanFactory.getBean("stuThree2");
+        stuThree2.printInfo();
         //list,set,map
         School school=(School)beanFactory.getBean("school");
         school.printSchool();
