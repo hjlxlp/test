@@ -9,7 +9,7 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
 public class HelloTest {
 
     public static void main(String[] args){
-        BeanFactory beanFactory = new ClassPathXmlApplicationContext("spring.xml");
+        BeanFactory beanFactory = new ClassPathXmlApplicationContext("bean.xml");
         Hello hello1 = beanFactory.getBean("one",HelloImpl.class);
         hello1.say();
         Hello hello2 = beanFactory.getBean("two",HelloImpl.class);

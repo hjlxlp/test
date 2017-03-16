@@ -1,4 +1,4 @@
-package com.hjl.spring;
+package com.hjl.ioc;
 
 import org.springframework.beans.factory.BeanFactory;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
@@ -9,7 +9,7 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
 public class Main {
 
     public static void main(String[] args){
-        BeanFactory beanFactory = new ClassPathXmlApplicationContext("classpath:applicationContext.xml");
+        BeanFactory beanFactory = new ClassPathXmlApplicationContext("classpath:ioc.xml");
         //HelloWord
         HelloWord helloWord = (HelloWord)beanFactory.getBean("hello");
         System.out.println(helloWord.getInfo());

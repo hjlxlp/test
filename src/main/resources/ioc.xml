@@ -1,21 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-       xmlns:context="http://www.springframework.org/schema/context"
        xsi:schemaLocation="http://www.springframework.org/schema/beans
-       http://www.springframework.org/schema/beans/spring-beans.xsd
-        http://www.springframework.org/schema/context
-        http://www.springframework.org/schema/context/spring-context.xsd">
+        http://www.springframework.org/schema/beans/spring-beans.xsd">
 
-    <!--开启注解注入-->
-    <context:annotation-config/>
-    <context:component-scan base-package="com.hjl.spring"></context:component-scan>
-
-    <bean id="hello" class="com.hjl.spring.HelloWord">
+    <bean id="hello" class="com.hjl.ioc.HelloWord">
         <property name="info" value="Happy New Year"/>
     </bean>
 
-    <bean id="stuOne" class="com.hjl.spring.StuOne">
+    <bean id="stuOne" class="com.hjl.ioc.StuOne">
         <constructor-arg>
             <value>火精灵</value>
         </constructor-arg>
@@ -27,7 +20,7 @@
         </constructor-arg>
     </bean>
 
-    <bean id="stuTwo" class="com.hjl.spring.StuTwo">
+    <bean id="stuTwo" class="com.hjl.ioc.StuTwo">
         <property name="name">
             <value>火麒麟</value>
         </property>
@@ -40,18 +33,18 @@
     </bean>
 
     <!--静态工厂-->
-    <bean id="stuThree" class="com.hjl.spring.StuFactory" factory-method="newInstance"/>
+    <bean id="stuThree" class="com.hjl.ioc.StuFactory" factory-method="newInstance"/>
 
     <!--实例工厂-->
-    <bean id="factory" class="com.hjl.spring.StuFactory"/>
+    <bean id="factory" class="com.hjl.ioc.StuFactory"/>
     <bean id="stuThree2" factory-bean="factory" factory-method="newInstanceTwo"></bean>
 
-    <bean id="school" class="com.hjl.spring.School">
+    <bean id="school" class="com.hjl.ioc.School">
         <!--List 注入例子 -->
         <property name="listStu">
             <list>
                 <ref bean="stuOne"/>
-                <bean class="com.hjl.spring.StuTwo">
+                <bean class="com.hjl.ioc.StuTwo">
                     <property name="age" value="21"/>
                     <property name="name" value="list"/>
                     <property name="sex" value="男"/>
@@ -64,7 +57,7 @@
         <property name="setStu">
             <set>
                 <ref bean="stuTwo"/>
-                <bean class="com.hjl.spring.StuOne">
+                <bean class="com.hjl.ioc.StuOne">
                     <constructor-arg value="set" index="0"></constructor-arg>
                     <constructor-arg value="男" index="1"></constructor-arg>
                     <constructor-arg value="21" index="2"></constructor-arg>
@@ -80,7 +73,7 @@
                     <ref bean="stuOne"/>
                 </entry>
                 <entry key="key2">
-                    <bean class="com.hjl.spring.StuTwo">
+                    <bean class="com.hjl.ioc.StuTwo">
                         <property name="age" value="21"/>
                         <property name="name" value="list"/>
                         <property name="sex" value="男"/>

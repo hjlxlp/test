@@ -23,10 +23,18 @@
     <!--jar版本号-->
     <spring.version>4.3.3.RELEASE</spring.version>
     <junit.version>4.11</junit.version>
+    <aspectj.version>1.8.9</aspectj.version>
 
   </properties>
 
   <dependencies>
+
+    <!--aspectj-->
+    <dependency>
+      <groupId>org.aspectj</groupId>
+      <artifactId>aspectjweaver</artifactId>
+      <version>${aspectj.version}</version>
+    </dependency>
 
     <!--Junit-->
     <dependency>

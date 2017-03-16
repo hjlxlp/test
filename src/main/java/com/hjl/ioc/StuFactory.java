@@ -1,4 +1,4 @@
-package com.hjl.spring;
+package com.hjl.ioc;
 
 /**
  * Created by admin on 2017/3/15.
